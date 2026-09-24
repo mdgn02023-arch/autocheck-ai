@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AutoCheck AI — مساعد شراء السيارات</title>
+<meta name="description" content="حلّل معلومات السيارة المستعملة قبل الشراء مع مساعد ذكاء اصطناعي.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav">
+  <div class="logo">🚗 AutoCheck <span>AI</span></div>
+  <a href="#how">كيف يخدم؟</a>
+</header>
+
+<main>
+<section class="hero">
+  <div>
+    <p class="badge">مساعد ذكي للسيارات المستعملة</p>
+    <h1>قبل ما تدفع فلوسك، <span>اسأل الذكاء الاصطناعي.</span></h1>
+    <p class="lead">دخل معلومات السيارة والأعراض اللي لاحظتها، وخذ قائمة مخاطر وأسئلة وفحوصات لازم تعملها قبل الشراء.</p>
+    <a class="cta" href="#analyzer">جرّب التحليل المجاني ↓</a>
+  </div>
+  <div class="card mini">
+    <div>🔍 فحص أولي</div><div>⚠️ نقاط الخطر</div><div>🧰 فحوصات قبل الشراء</div><div>💬 أسئلة للبائع</div>
+  </div>
+</section>
+
+<section id="analyzer" class="panel">
+<h2>حلّل سيارة</h2>
+<p class="muted">هذا تحليل معلوماتي، وليس بديلاً عن فحص ميكانيكي.</p>
+<form id="form">
+  <div class="grid">
+    <label>الماركة<input name="brand" placeholder="مثال: Volkswagen" required></label>
+    <label>الموديل<input name="model" placeholder="مثال: Golf 7" required></label>
+    <label>السنة<input name="year" type="number" placeholder="2016" required></label>
+    <label>الكيلومترات<input name="mileage" placeholder="150000"></label>
+    <label>المحرك<input name="engine" placeholder="1.6 TDI"></label>
+    <label>القير<input name="gearbox" placeholder="Manuel / DSG"></label>
+    <label>السعر<input name="price" placeholder="مثال: 35000 د.ت"></label>
+  </div>
+  <label>شنوّة لاحظت في السيارة؟<textarea name="symptoms" rows="5" placeholder="مثال: دخان عند التشغيل، صوت في الموتور، اهتزاز، صاحبها يقول ما فيها شيء..."></textarea></label>
+  <button id="btn">🤖 حلّل السيارة</button>
+</form>
+<div id="loading" class="loading hidden">جاري التحليل...</div>
+<pre id="result" class="result hidden"></pre>
+</section>
+
+<section id="how" class="steps">
+<h2>كيفاش نربحو من الموقع؟</h2>
+<div class="cards">
+  <div><b>1. مجاني</b><p>نعطي تحليل أولي مجاني لجلب الزوار.</p></div>
+  <div><b>2. Premium</b><p>نبيع تقرير أعمق + checklist + أسئلة مخصصة بسعر صغير.</p></div>
+  <div><b>3. شراكات</b><p>لاحقًا نربط الخدمة بميكانيكيين أو خدمات سيارات مقابل عمولة.</p></div>
+</div>
+</section>
+</main>
+<footer>AutoCheck AI — معلومات تساعدك، والفحص الحقيقي عند مختص.</footer>
+<script src="app.js"></script>
+</body>
+</html>
