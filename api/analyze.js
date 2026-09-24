@@ -1,15 +1,23 @@
 import OpenAI from "openai";
 
-const client = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
-
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
   try {
+    const apiKey = process.env.OPENAI_API_KEY;
+
+    if (!apiKey) {
+      return res.status(500).json({
+        error: "OPENAI_API_KEY غير موجودة في Vercel.",
+      });
+    }
+
+    const client = new OpenAI({
+      apiKey: apiKey,
+    });
+
     const {
       brand,
       model,
@@ -19,7 +27,7 @@ export default async function handler(req, res) {
       gearbox,
       price,
       symptoms,
-    } = req.body;
+    } = req.body || {};
 
     if (!brand || !model || !year || !symptoms) {
       return res.status(400).json({
@@ -28,17 +36,22 @@ export default async function handler(req, res) {
     }
 
     const prompt = `
-أنت مساعد محايد لفحص السيارات المستعملة. المستخدم في تونس.
-حلّل السيارة بناءً على المعلومات التالية، ولا تدّعي أنك فحصت السيارة فعلياً.
+أنت مساعد ذكي ومحايد لفحص السيارات المستعملة في تونس.
 
-أعطِ:
-1) أهم نقاط الخطر المحتملة.
-2) أسئلة يجب طرحها على البائع.
-3) فحوصات عملية قبل الشراء.
-4) متى يجب التوقف وطلب ميكانيكي.
-5) خلاصة قصيرة.
+حلّل السيارة اعتماداً فقط على المعلومات التي أعطاها المستخدم.
+لا تدّعي أنك فحصت السيارة فعلياً، ولا تعطِ ضماناً بأن السيارة جيدة أو سيئة.
 
-السيارة:
+أعطِ الإجابة باللهجة التونسية وبشكل واضح:
+
+1. ⚠️ نقاط الخطر المحتملة
+2. 🔧 الفحوصات التي يجب القيام بها قبل الشراء
+3. 💬 أسئلة مهمة للبائع
+4. 🚨 الحالات التي تستوجب إيقاف عملية الشراء واستشارة ميكانيكي
+5. 💰 ملاحظات على السعر إذا كانت المعلومات تسمح بذلك
+6. 📋 خلاصة قصيرة
+
+معلومات السيارة:
+
 الماركة: ${brand}
 الموديل: ${model}
 السنة: ${year}
@@ -46,7 +59,7 @@ export default async function handler(req, res) {
 المحرك: ${engine || "غير معروف"}
 القير: ${gearbox || "غير معروف"}
 السعر: ${price || "غير معروف"}
-الأعراض/الملاحظات: ${symptoms}
+الأعراض والملاحظات: ${symptoms}
 `;
 
     const response = await client.responses.create({
@@ -57,11 +70,12 @@ export default async function handler(req, res) {
     return res.status(200).json({
       result: response.output_text,
     });
+
   } catch (error) {
-    console.error(error);
+    console.error("OPENAI ERROR:", error);
 
     return res.status(500).json({
-      error: "صار خطأ أثناء التحليل. جرّب مرة أخرى.",
+      error: "صار خطأ أثناء تحليل السيارة. جرّب مرة أخرى.",
     });
   }
 }
