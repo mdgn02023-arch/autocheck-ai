@@ -8,7 +8,7 @@ const refreshCarsBtn = document.querySelector("#refresh-cars");
 
 
 /* =========================
-   🤖 AI CAR ANALYZER
+   🤖 AI ANALYZER
 ========================= */
 
 if (form) {
@@ -18,7 +18,6 @@ if (form) {
     e.preventDefault();
 
     btn.disabled = true;
-
     loading.classList.remove("hidden");
     result.classList.add("hidden");
 
@@ -29,15 +28,11 @@ if (form) {
     try {
 
       const response = await fetch("/api/analyze", {
-
         method: "POST",
-
         headers: {
           "Content-Type": "application/json"
         },
-
         body: JSON.stringify(data)
-
       });
 
       const json = await response.json();
@@ -49,20 +44,16 @@ if (form) {
       }
 
       result.textContent = json.result;
-
       result.classList.remove("hidden");
 
     } catch (error) {
 
-      result.textContent =
-        "❌ " + error.message;
-
+      result.textContent = "❌ " + error.message;
       result.classList.remove("hidden");
 
     } finally {
 
       btn.disabled = false;
-
       loading.classList.add("hidden");
 
     }
@@ -73,7 +64,7 @@ if (form) {
 
 
 /* =========================
-   🚗 LOAD CARS
+   🚗 MARKETPLACE
 ========================= */
 
 async function loadCars() {
@@ -88,20 +79,20 @@ async function loadCars() {
 
   try {
 
-    const response = await fetch("/api/cars");
+    const response = await fetch("/api/cars", {
+      method: "GET",
+      cache: "no-store"
+    });
 
     const cars = await response.json();
 
     if (!response.ok) {
-
       throw new Error(
         cars.error || "تعذر تحميل السيارات."
       );
-
     }
 
-
-    if (!cars.length) {
+    if (!Array.isArray(cars) || cars.length === 0) {
 
       carsList.innerHTML = `
         <div class="car-loading">
@@ -110,17 +101,16 @@ async function loadCars() {
       `;
 
       return;
-
     }
 
 
-    carsList.innerHTML = cars.map((car) => {
+    carsList.innerHTML = cars.map(car => {
 
       const image = car.image_url
         ? `
           <img
             src="${escapeHtml(car.image_url)}"
-            alt="${escapeHtml(car.brand)} ${escapeHtml(car.model)}"
+            alt="${escapeHtml(car.brand || "")} ${escapeHtml(car.model || "")}"
             loading="lazy"
           >
         `
@@ -144,7 +134,6 @@ async function loadCars() {
 
 
       return `
-
         <article class="car-card">
 
           ${image}
@@ -156,34 +145,25 @@ async function loadCars() {
               ${escapeHtml(car.model || "")}
             </h3>
 
-            <div class="car-details">
+            <p>
+              📅 ${escapeHtml(String(car.year || "غير محدد"))}
+            </p>
 
-              <span>
-                📅 ${escapeHtml(String(car.year || "غير محدد"))}
-              </span>
+            <p>
+              🛣️ ${escapeHtml(String(car.mileage || "غير محدد"))} كم
+            </p>
 
-              <span>
-                🛣️ ${escapeHtml(String(car.mileage || "غير محدد"))} كم
-              </span>
-
-            </div>
-
-
-            <div class="car-price">
-
+            <p class="car-price">
               💰 ${
                 car.price
                   ? escapeHtml(String(car.price)) + " د.ت"
                   : "السعر غير محدد"
               }
-
-            </div>
-
+            </p>
 
             <p>
               📍 ${escapeHtml(car.governorate || "غير محدد")}
             </p>
-
 
             ${
               car.fuel
@@ -191,13 +171,11 @@ async function loadCars() {
                 : ""
             }
 
-
             ${
               car.gearbox
                 ? `<p>⚙️ ${escapeHtml(car.gearbox)}</p>`
                 : ""
             }
-
 
             ${
               car.description
@@ -209,13 +187,11 @@ async function loadCars() {
                 : ""
             }
 
-
             ${phone}
 
           </div>
 
         </article>
-
       `;
 
     }).join("");
@@ -224,13 +200,9 @@ async function loadCars() {
   } catch (error) {
 
     carsList.innerHTML = `
-
       <div class="car-loading">
-
         ❌ ${escapeHtml(error.message)}
-
       </div>
-
     `;
 
   }
@@ -246,21 +218,13 @@ function escapeHtml(value) {
 
   return String(value).replace(
     /[&<>"']/g,
-    (character) => {
-
-      const characters = {
-
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        '"': "&quot;",
-        "'": "&#039;"
-
-      };
-
-      return characters[character];
-
-    }
+    character => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#039;"
+    }[character])
   );
 
 }
