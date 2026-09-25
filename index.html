@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -8,16 +9,15 @@
 
 <meta name="description" content="AutoCheck AI يساعدك على فحص السيارات المستعملة في تونس قبل الشراء. أدخل معلومات السيارة والأعراض للحصول على نقاط الخطر والفحوصات والأسئلة المهمة.">
 
-<meta name="keywords" content="AutoCheck AI, فحص السيارات المستعملة, سيارات مستعملة تونس, فحص كرهبة, شراء سيارة تونس, فحص سيارة قبل الشراء">
+<meta name="keywords" content="AutoCheck AI, فحص السيارات المستعملة, سيارات مستعملة تونس, فحص كرهبة, شراء سيارة تونس, فحص سيارة قبل الشراء, فحص السيارات تونس">
 
 <meta name="author" content="AutoCheck AI">
-
 <meta name="robots" content="index, follow">
-
 <meta name="theme-color" content="#2563eb">
 
 <link rel="canonical" href="https://autocheck-ai-seven.vercel.app/">
 
+<!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="AutoCheck AI — فحص السيارات المستعملة في تونس">
 <meta property="og:description" content="حلّل معلومات السيارة المستعملة قبل الشراء واعرف نقاط الخطر والفحوصات والأسئلة المهمة.">
@@ -25,18 +25,45 @@
 <meta property="og:site_name" content="AutoCheck AI">
 <meta property="og:locale" content="ar_TN">
 
+<!-- Twitter -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AutoCheck AI — فحص السيارات المستعملة في تونس">
 <meta name="twitter:description" content="مساعدك لفحص السيارة المستعملة قبل الشراء في تونس.">
 
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "AutoCheck AI",
+  "url": "https://autocheck-ai-seven.vercel.app/",
+  "description": "AutoCheck AI يساعدك على فحص السيارات المستعملة في تونس قبل الشراء، ومعرفة نقاط الخطر والفحوصات والأسئلة المهمة.",
+  "applicationCategory": "AutomotiveApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ar-TN",
+  "author": {
+    "@type": "Person",
+    "name": "Mohamed Gnaichia"
+  }
+}
+</script>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
 <header class="nav">
-  <div class="logo">🚗 AutoCheck <span>AI</span></div>
-  <a href="#how">كيفاش يخدم؟</a>
+
+  <div class="logo">
+    🚗 AutoCheck <span>AI</span>
+  </div>
+
+  <a href="#how">
+    كيفاش يخدم؟
+  </a>
+
 </header>
 
 <main>
@@ -45,7 +72,9 @@
 
   <div>
 
-    <p class="badge">🇹🇳 مساعد للسيارات المستعملة في تونس</p>
+    <p class="badge">
+      🇹🇳 مساعد للسيارات المستعملة في تونس
+    </p>
 
     <h1>
       قبل ما تدفع فلوسك،
@@ -64,243 +93,549 @@
   </div>
 
   <div class="card mini">
-    <div>🔍 فحص أولي</div>
-    <div>⚠️ نقاط الخطر</div>
-    <div>🧰 فحوصات قبل الشراء</div>
-    <div>💬 أسئلة للمولّى</div>
+
+    <div>
+      🔍 فحص أولي
+    </div>
+
+    <div>
+      ⚠️ نقاط الخطر
+    </div>
+
+    <div>
+      🧰 فحوصات قبل الشراء
+    </div>
+
+    <div>
+      💬 أسئلة للمولّى
+    </div>
+
   </div>
 
 </section>
 
+
 <section id="analyzer" class="panel">
 
-<h2>🚗 حلّل الكرهبة</h2>
+<h2>
+  🚗 حلّل الكرهبة
+</h2>
 
 <p class="muted">
-عمّر المعلومات اللي تعرفها. موش لازم تعرفهم الكل.
+  عمّر المعلومات اللي تعرفها. موش لازم تعرفهم الكل.
 </p>
+
 
 <form id="form">
 
 <div class="grid">
 
 <label>
-الماركة
-<input name="brand" placeholder="مثال: Volkswagen" required>
+  الماركة
+  <input
+    name="brand"
+    placeholder="مثال: Volkswagen"
+    required
+  >
 </label>
 
-<label>
-الموديل
-<input name="model" placeholder="مثال: Golf 7" required>
-</label>
 
 <label>
-عام الصنع
-<input name="year" type="number" placeholder="2016" required>
+  الموديل
+  <input
+    name="model"
+    placeholder="مثال: Golf 7"
+    required
+  >
 </label>
 
-<label>
-الكيلومترات
-<input name="mileage" placeholder="مثال: 150000 كم">
-</label>
 
 <label>
-نوع الوقود
-<select name="fuel">
-<option value="">اختار</option>
-<option>Essence</option>
-<option>Diesel</option>
-<option>Hybride</option>
-<option>Electrique</option>
-<option>GPL</option>
-</select>
+  عام الصنع
+  <input
+    name="year"
+    type="number"
+    placeholder="2016"
+    required
+  >
 </label>
 
-<label>
-المحرك
-<input name="engine" placeholder="مثال: 1.6 TDI">
-</label>
 
 <label>
-قوة المحرك
-<input name="power" placeholder="مثال: 105 chevaux">
+  الكيلومترات
+  <input
+    name="mileage"
+    placeholder="مثال: 150000 كم"
+  >
 </label>
 
-<label>
-القير
-<select name="gearbox">
-<option value="">اختار</option>
-<option>Manuel</option>
-<option>Automatique</option>
-<option>DSG</option>
-<option>CVT</option>
-<option>Robotisé</option>
-</select>
-</label>
 
 <label>
-السعر المطلوب
-<input name="price" placeholder="مثال: 40000 د.ت">
+  نوع الوقود
+
+  <select name="fuel">
+
+    <option value="">
+      اختار
+    </option>
+
+    <option>
+      Essence
+    </option>
+
+    <option>
+      Diesel
+    </option>
+
+    <option>
+      Hybride
+    </option>
+
+    <option>
+      Electrique
+    </option>
+
+    <option>
+      GPL
+    </option>
+
+  </select>
+
 </label>
 
-<label>
-الولاية
-<input name="governorate" placeholder="مثال: صفاقس">
-</label>
 
 <label>
-عدد المالكين السابقين
-<input name="owners" type="number" placeholder="مثال: 2">
+  المحرك
+
+  <input
+    name="engine"
+    placeholder="مثال: 1.6 TDI"
+  >
+
 </label>
 
+
 <label>
-حالة الكرهبة
-<select name="condition">
-<option value="">اختار</option>
-<option>ممتازة</option>
-<option>باهيّة</option>
-<option>متوسطة</option>
-<option>تحتاج خدمة</option>
-<option>ما نعرفش</option>
-</select>
+  قوة المحرك
+
+  <input
+    name="power"
+    placeholder="مثال: 105 chevaux"
+  >
+
+</label>
+
+
+<label>
+  القير
+
+  <select name="gearbox">
+
+    <option value="">
+      اختار
+    </option>
+
+    <option>
+      Manuel
+    </option>
+
+    <option>
+      Automatique
+    </option>
+
+    <option>
+      DSG
+    </option>
+
+    <option>
+      CVT
+    </option>
+
+    <option>
+      Robotisé
+    </option>
+
+  </select>
+
+</label>
+
+
+<label>
+  السعر المطلوب
+
+  <input
+    name="price"
+    placeholder="مثال: 40000 د.ت"
+  >
+
+</label>
+
+
+<label>
+  الولاية
+
+  <input
+    name="governorate"
+    placeholder="مثال: صفاقس"
+  >
+
+</label>
+
+
+<label>
+  عدد المالكين السابقين
+
+  <input
+    name="owners"
+    type="number"
+    placeholder="مثال: 2"
+  >
+
+</label>
+
+
+<label>
+  حالة الكرهبة
+
+  <select name="condition">
+
+    <option value="">
+      اختار
+    </option>
+
+    <option>
+      ممتازة
+    </option>
+
+    <option>
+      باهيّة
+    </option>
+
+    <option>
+      متوسطة
+    </option>
+
+    <option>
+      تحتاج خدمة
+    </option>
+
+    <option>
+      ما نعرفش
+    </option>
+
+  </select>
+
 </label>
 
 </div>
 
-<h3>🛠️ تاريخ الصيانة</h3>
+
+<h3>
+  🛠️ تاريخ الصيانة
+</h3>
+
 
 <div class="grid">
 
 <label>
-آخر صيانة
-<input name="lastService" placeholder="مثال: منذ شهر">
+  آخر صيانة
+
+  <input
+    name="lastService"
+    placeholder="مثال: منذ شهر"
+  >
+
 </label>
 
-<label>
-فواتير الصيانة؟
-<select name="serviceInvoices">
-<option value="">اختار</option>
-<option>إي</option>
-<option>لا</option>
-<option>بعضهم</option>
-<option>ما نعرفش</option>
-</select>
-</label>
 
 <label>
-تبدلت قطع كبيرة؟
-<input name="replacedParts" placeholder="مثال: Embrayage">
+  فواتير الصيانة؟
+
+  <select name="serviceInvoices">
+
+    <option value="">
+      اختار
+    </option>
+
+    <option>
+      إي
+    </option>
+
+    <option>
+      لا
+    </option>
+
+    <option>
+      بعضهم
+    </option>
+
+    <option>
+      ما نعرفش
+    </option>
+
+  </select>
+
 </label>
 
+
 <label>
-عملت حادث؟
-<select name="accident">
-<option value="">اختار</option>
-<option>لا</option>
-<option>إي</option>
-<option>ما نعرفش</option>
-</select>
+  تبدلت قطع كبيرة؟
+
+  <input
+    name="replacedParts"
+    placeholder="مثال: Embrayage"
+  >
+
+</label>
+
+
+<label>
+  عملت حادث؟
+
+  <select name="accident">
+
+    <option value="">
+      اختار
+    </option>
+
+    <option>
+      لا
+    </option>
+
+    <option>
+      إي
+    </option>
+
+    <option>
+      ما نعرفش
+    </option>
+
+  </select>
+
 </label>
 
 </div>
 
-<h3>🔧 حالة الكرهبة</h3>
+
+<h3>
+  🔧 حالة الكرهبة
+</h3>
+
 
 <div class="grid">
 
 <label>
-المكيف
-<select name="ac">
-<option value="">اختار</option>
-<option>يخدم مليح</option>
-<option>يخدم أما ضعيف</option>
-<option>ما يخدمش</option>
-<option>ما جربتوش</option>
-</select>
+  المكيف
+
+  <select name="ac">
+
+    <option value="">
+      اختار
+    </option>
+
+    <option>
+      يخدم مليح
+    </option>
+
+    <option>
+      يخدم أما ضعيف
+    </option>
+
+    <option>
+      ما يخدمش
+    </option>
+
+    <option>
+      ما جربتوش
+    </option>
+
+  </select>
+
 </label>
 
-<label>
-لمبات تحذير في الطابلو؟
-<select name="warningLights">
-<option value="">اختار</option>
-<option>لا</option>
-<option>إي</option>
-<option>ما نعرفش</option>
-</select>
-</label>
 
 <label>
-حالة العجلات
-<select name="tires">
-<option value="">اختار</option>
-<option>جدد</option>
-<option>متوسطة</option>
-<option>مستهلكة</option>
-<option>ما نعرفش</option>
-</select>
+  لمبات تحذير في الطابلو؟
+
+  <select name="warningLights">
+
+    <option value="">
+      اختار
+    </option>
+
+    <option>
+      لا
+    </option>
+
+    <option>
+      إي
+    </option>
+
+    <option>
+      ما نعرفش
+    </option>
+
+  </select>
+
 </label>
 
+
 <label>
-حالة البطارية
-<select name="battery">
-<option value="">اختار</option>
-<option>جديدة</option>
-<option>باهيّة</option>
-<option>ضعيفة</option>
-<option>ما نعرفش</option>
-</select>
+  حالة العجلات
+
+  <select name="tires">
+
+    <option value="">
+      اختار
+    </option>
+
+    <option>
+      جدد
+    </option>
+
+    <option>
+      متوسطة
+    </option>
+
+    <option>
+      مستهلكة
+    </option>
+
+    <option>
+      ما نعرفش
+    </option>
+
+  </select>
+
+</label>
+
+
+<label>
+  حالة البطارية
+
+  <select name="battery">
+
+    <option value="">
+      اختار
+    </option>
+
+    <option>
+      جديدة
+    </option>
+
+    <option>
+      باهيّة
+    </option>
+
+    <option>
+      ضعيفة
+    </option>
+
+    <option>
+      ما نعرفش
+    </option>
+
+  </select>
+
 </label>
 
 </div>
 
-<h3>📝 شنوة لاحظت إنت؟</h3>
+
+<h3>
+  📝 شنوة لاحظت إنت؟
+</h3>
+
 
 <label>
 
-الأعراض والملاحظات
+  الأعراض والملاحظات
 
-<textarea
-name="symptoms"
-rows="6"
-placeholder="مثال: فما دخان وقت التشغيل، صوت في الموتور، اهتزاز، القير يضرب، صاحبها قال ما فيها حتى شيء..."
-required
-></textarea>
+  <textarea
+    name="symptoms"
+    rows="6"
+    placeholder="مثال: فما دخان وقت التشغيل، صوت في الموتور، اهتزاز، القير يضرب، صاحبها قال ما فيها حتى شيء..."
+    required
+  ></textarea>
 
 </label>
 
-<button id="btn" type="submit">
-🤖 حلّل الكرهبة
+
+<button
+  id="btn"
+  type="submit"
+>
+  🤖 حلّل الكرهبة
 </button>
+
 
 </form>
 
-<div id="loading" class="loading hidden">
-جاري التحليل... ⏳
+
+<div
+  id="loading"
+  class="loading hidden"
+>
+  جاري التحليل... ⏳
 </div>
 
-<pre id="result" class="result hidden"></pre>
+
+<pre
+  id="result"
+  class="result hidden"
+></pre>
 
 </section>
 
-<section id="how" class="steps">
 
-<h2>كيفاش يخدم AutoCheck AI؟</h2>
+<section
+  id="how"
+  class="steps"
+>
+
+<h2>
+  كيفاش يخدم AutoCheck AI؟
+</h2>
+
 
 <div class="cards">
 
 <div>
-<b>1. عمّر المعلومات</b>
-<p>دخل اللي تعرفو على الكرهبة.</p>
+
+  <b>
+    1. عمّر المعلومات
+  </b>
+
+  <p>
+    دخل اللي تعرفو على الكرهبة.
+  </p>
+
 </div>
 
-<div>
-<b>2. حلّل</b>
-<p>الموقع يراجع المعلومات والأعراض اللي دخلتهم.</p>
-</div>
 
 <div>
-<b>3. افحص قبل ما تشري</b>
-<p>تاخو قائمة بالحاجات اللي يلزمك تراقبها وتسأل عليها.</p>
+
+  <b>
+    2. حلّل
+  </b>
+
+  <p>
+    الموقع يراجع المعلومات والأعراض اللي دخلتهم.
+  </p>
+
+</div>
+
+
+<div>
+
+  <b>
+    3. افحص قبل ما تشري
+  </b>
+
+  <p>
+    تاخو قائمة بالحاجات اللي يلزمك تراقبها وتسأل عليها.
+  </p>
+
 </div>
 
 </div>
@@ -309,10 +644,19 @@ required
 
 </main>
 
+
 <footer>
-  <div>AutoCheck AI 🇹🇳 — معلومات تساعدك، والفحص الحقيقي عند مختص.</div>
-  <div>Created by <strong>Mohamed Gnaichia</strong></div>
+
+  <div>
+    AutoCheck AI 🇹🇳 — معلومات تساعدك، والفحص الحقيقي عند مختص.
+  </div>
+
+  <div>
+    Created by <strong>Mohamed Gnaichia</strong>
+  </div>
+
 </footer>
+
 
 <script src="app.js"></script>
 
