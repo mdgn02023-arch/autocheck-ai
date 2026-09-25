@@ -9,6 +9,9 @@ const refreshCarsBtn = document.querySelector("#refresh-cars");
 const addCarForm = document.querySelector("#add-car-form");
 const addCarMessage = document.querySelector("#add-car-message");
 
+const carImagesInput = document.querySelector("#car-images");
+const carImagePreview = document.querySelector("#car-image-preview");
+
 
 /* =========================
    🤖 AI ANALYZER
@@ -210,6 +213,138 @@ async function loadCars() {
 
 
 /* =========================
+   📸 IMAGE PREVIEW
+========================= */
+
+if (carImagesInput) {
+
+  carImagesInput.addEventListener("change", () => {
+
+    if (!carImagePreview) return;
+
+    carImagePreview.innerHTML = "";
+
+    const files = Array.from(carImagesInput.files || []);
+
+    if (files.length === 0) {
+      return;
+    }
+
+    files.forEach((file) => {
+
+      if (!file.type.startsWith("image/")) {
+        return;
+      }
+
+      const reader = new FileReader();
+
+      reader.onload = (event) => {
+
+        const img = document.createElement("img");
+
+        img.src = event.target.result;
+        img.alt = "معاينة صورة السيارة";
+        img.loading = "lazy";
+
+        carImagePreview.appendChild(img);
+
+      };
+
+      reader.readAsDataURL(file);
+
+    });
+
+  });
+
+}
+
+
+/* =========================
+   ☁️ UPLOAD IMAGE
+========================= */
+
+async function uploadCarImage(file) {
+
+  if (!file) {
+    return null;
+  }
+
+  if (!file.type.startsWith("image/")) {
+    throw new Error("الملف المختار موش صورة.");
+  }
+
+  /*
+    نحدّ الحجم إلى 8MB
+    باش ما تصيرش مشكلة في الرفع.
+  */
+  if (file.size > 8 * 1024 * 1024) {
+    throw new Error(
+      "الصورة كبيرة برشة. اختار صورة أقل من 8MB."
+    );
+  }
+
+  const base64 = await fileToBase64(file);
+
+  const response = await fetch("/api/upload-car-image", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      fileName: file.name,
+      contentType: file.type,
+      fileBase64: base64
+    })
+  });
+
+  const json = await response.json();
+
+  if (!response.ok) {
+    throw new Error(
+      json.error || "تعذر رفع الصورة."
+    );
+  }
+
+  return json.image_url || null;
+}
+
+
+/* =========================
+   🔄 FILE TO BASE64
+========================= */
+
+function fileToBase64(file) {
+
+  return new Promise((resolve, reject) => {
+
+    const reader = new FileReader();
+
+    reader.onload = () => {
+
+      const result = String(reader.result || "");
+
+      const base64 = result.includes(",")
+        ? result.split(",")[1]
+        : result;
+
+      resolve(base64);
+
+    };
+
+    reader.onerror = () => {
+      reject(
+        new Error("تعذر قراءة الصورة.")
+      );
+    };
+
+    reader.readAsDataURL(file);
+
+  });
+
+}
+
+
+/* =========================
    ➕ ADD CAR
 ========================= */
 
@@ -229,66 +364,159 @@ if (addCarForm) {
     }
 
     if (addCarMessage) {
-      addCarMessage.textContent = "⏳ جاري نشر السيارة...";
-      addCarMessage.className = "add-car-message";
+      addCarMessage.textContent =
+        "⏳ جاري تجهيز السيارة...";
+      addCarMessage.className =
+        "add-car-message";
     }
-
-    const data = {
-      brand: document.querySelector("#car-brand")?.value.trim(),
-      model: document.querySelector("#car-model")?.value.trim(),
-      year: document.querySelector("#car-year")?.value,
-      mileage: document.querySelector("#car-mileage")?.value,
-      price: document.querySelector("#car-price")?.value,
-      governorate: document.querySelector("#car-governorate")?.value.trim(),
-      fuel: document.querySelector("#car-fuel")?.value,
-      gearbox: document.querySelector("#car-gearbox")?.value,
-      seller_phone: document.querySelector("#car-phone")?.value.trim(),
-      description: document.querySelector("#car-description")?.value.trim()
-    };
 
     try {
 
+      /* =========================
+         📸 UPLOAD MAIN IMAGE
+      ========================= */
+
+      let imageUrl = null;
+
+      const selectedFiles =
+        Array.from(carImagesInput?.files || []);
+
+      if (selectedFiles.length > 0) {
+
+        if (addCarMessage) {
+          addCarMessage.textContent =
+            "📸 جاري رفع صورة السيارة...";
+        }
+
+        /*
+          حاليًا نستعمل أول صورة كصورة رئيسية.
+        */
+        imageUrl = await uploadCarImage(
+          selectedFiles[0]
+        );
+      }
+
+
+      /* =========================
+         🚗 CAR DATA
+      ========================= */
+
+      const data = {
+
+        brand:
+          document.querySelector("#car-brand")?.value.trim(),
+
+        model:
+          document.querySelector("#car-model")?.value.trim(),
+
+        year:
+          document.querySelector("#car-year")?.value,
+
+        mileage:
+          document.querySelector("#car-mileage")?.value,
+
+        price:
+          document.querySelector("#car-price")?.value,
+
+        governorate:
+          document.querySelector("#car-governorate")
+            ?.value.trim(),
+
+        fuel:
+          document.querySelector("#car-fuel")?.value,
+
+        gearbox:
+          document.querySelector("#car-gearbox")?.value,
+
+        seller_phone:
+          document.querySelector("#car-phone")
+            ?.value.trim(),
+
+        description:
+          document.querySelector("#car-description")
+            ?.value.trim(),
+
+        image_url: imageUrl
+
+      };
+
+
+      /* =========================
+         📤 SEND CAR TO SERVER
+      ========================= */
+
+      if (addCarMessage) {
+        addCarMessage.textContent =
+          "🚗 جاري نشر السيارة...";
+      }
+
       const response = await fetch("/api/add-car", {
+
         method: "POST",
+
         headers: {
           "Content-Type": "application/json"
         },
+
         body: JSON.stringify(data)
+
       });
 
       const json = await response.json();
 
       if (!response.ok) {
+
         throw new Error(
           json.error || "تعذر نشر السيارة."
         );
+
       }
 
+
+      /* =========================
+         ✅ SUCCESS
+      ========================= */
+
       if (addCarMessage) {
+
         addCarMessage.textContent =
-          "✅ تم نشر السيارة بنجاح!";
+          "✅ تم نشر السيارة والصورة بنجاح!";
+
         addCarMessage.className =
           "add-car-message success";
+
       }
 
       addCarForm.reset();
 
+      if (carImagePreview) {
+        carImagePreview.innerHTML = "";
+      }
+
       await loadCars();
+
 
     } catch (error) {
 
       if (addCarMessage) {
+
         addCarMessage.textContent =
           "❌ " + error.message;
+
         addCarMessage.className =
           "add-car-message error";
+
       }
 
     } finally {
 
       if (submitButton) {
+
         submitButton.disabled = false;
-        submitButton.textContent = "🚗 نشر السيارة";
+
+        submitButton.textContent =
+          "🚗 نشر السيارة";
+
       }
 
     }
