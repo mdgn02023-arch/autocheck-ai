@@ -6,6 +6,9 @@ const result = document.querySelector("#result");
 const carsList = document.querySelector("#cars-list");
 const refreshCarsBtn = document.querySelector("#refresh-cars");
 
+const addCarForm = document.querySelector("#add-car-form");
+const addCarMessage = document.querySelector("#add-car-message");
+
 
 /* =========================
    🤖 AI ANALYZER
@@ -103,7 +106,6 @@ async function loadCars() {
       return;
     }
 
-
     carsList.innerHTML = cars.map(car => {
 
       const image = car.image_url
@@ -120,7 +122,6 @@ async function loadCars() {
           </div>
         `;
 
-
       const phone = car.seller_phone
         ? `
           <a
@@ -131,7 +132,6 @@ async function loadCars() {
           </a>
         `
         : "";
-
 
       return `
         <article class="car-card">
@@ -196,7 +196,6 @@ async function loadCars() {
 
     }).join("");
 
-
   } catch (error) {
 
     carsList.innerHTML = `
@@ -206,6 +205,95 @@ async function loadCars() {
     `;
 
   }
+
+}
+
+
+/* =========================
+   ➕ ADD CAR
+========================= */
+
+if (addCarForm) {
+
+  addCarForm.addEventListener("submit", async (e) => {
+
+    e.preventDefault();
+
+    const submitButton = addCarForm.querySelector(
+      'button[type="submit"]'
+    );
+
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = "⏳ جاري نشر السيارة...";
+    }
+
+    if (addCarMessage) {
+      addCarMessage.textContent = "⏳ جاري نشر السيارة...";
+      addCarMessage.className = "add-car-message";
+    }
+
+    const data = {
+      brand: document.querySelector("#car-brand")?.value.trim(),
+      model: document.querySelector("#car-model")?.value.trim(),
+      year: document.querySelector("#car-year")?.value,
+      mileage: document.querySelector("#car-mileage")?.value,
+      price: document.querySelector("#car-price")?.value,
+      governorate: document.querySelector("#car-governorate")?.value.trim(),
+      fuel: document.querySelector("#car-fuel")?.value,
+      gearbox: document.querySelector("#car-gearbox")?.value,
+      seller_phone: document.querySelector("#car-phone")?.value.trim(),
+      description: document.querySelector("#car-description")?.value.trim()
+    };
+
+    try {
+
+      const response = await fetch("/api/add-car", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      });
+
+      const json = await response.json();
+
+      if (!response.ok) {
+        throw new Error(
+          json.error || "تعذر نشر السيارة."
+        );
+      }
+
+      if (addCarMessage) {
+        addCarMessage.textContent =
+          "✅ تم نشر السيارة بنجاح!";
+        addCarMessage.className =
+          "add-car-message success";
+      }
+
+      addCarForm.reset();
+
+      await loadCars();
+
+    } catch (error) {
+
+      if (addCarMessage) {
+        addCarMessage.textContent =
+          "❌ " + error.message;
+        addCarMessage.className =
+          "add-car-message error";
+      }
+
+    } finally {
+
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = "🚗 نشر السيارة";
+      }
+
+    }
+
+  });
 
 }
 
