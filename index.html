@@ -68,10 +68,6 @@
 
 <main>
 
-<!-- =========================
-     HERO
-========================= -->
-
 <section class="hero">
 
   <div>
@@ -107,25 +103,11 @@
 
   <div class="card mini">
 
-    <div>
-      🔍 فحص أولي
-    </div>
-
-    <div>
-      ⚠️ نقاط الخطر
-    </div>
-
-    <div>
-      🧰 فحوصات قبل الشراء
-    </div>
-
-    <div>
-      💬 أسئلة للمولّى
-    </div>
-
-    <div>
-      🚗 سيارات للبيع
-    </div>
+    <div>🔍 فحص أولي</div>
+    <div>⚠️ نقاط الخطر</div>
+    <div>🧰 فحوصات قبل الشراء</div>
+    <div>💬 أسئلة للمولّى</div>
+    <div>🚗 سيارات للبيع</div>
 
   </div>
 
@@ -138,9 +120,7 @@
 
 <section id="analyzer" class="panel">
 
-<h2>
-  🚗 حلّل الكرهبة
-</h2>
+<h2>🚗 حلّل الكرهبة</h2>
 
 <p class="muted">
   عمّر المعلومات اللي تعرفها. موش لازم تعرفهم الكل.
@@ -153,159 +133,87 @@
 
 <label>
   الماركة
-
-  <input
-    name="brand"
-    placeholder="مثال: Volkswagen"
-    required
-  >
+  <input name="brand" placeholder="مثال: Volkswagen" required>
 </label>
-
 
 <label>
   الموديل
-
-  <input
-    name="model"
-    placeholder="مثال: Golf 7"
-    required
-  >
+  <input name="model" placeholder="مثال: Golf 7" required>
 </label>
-
 
 <label>
   عام الصنع
-
-  <input
-    name="year"
-    type="number"
-    placeholder="2016"
-    required
-  >
+  <input name="year" type="number" placeholder="2016" required>
 </label>
-
 
 <label>
   الكيلومترات
-
-  <input
-    name="mileage"
-    placeholder="مثال: 150000 كم"
-  >
+  <input name="mileage" placeholder="مثال: 150000 كم">
 </label>
-
 
 <label>
   نوع الوقود
 
   <select name="fuel">
-
-    <option value="">
-      اختار
-    </option>
-
+    <option value="">اختار</option>
     <option>Essence</option>
     <option>Diesel</option>
     <option>Hybride</option>
     <option>Electrique</option>
     <option>GPL</option>
-
   </select>
 
 </label>
 
-
 <label>
   المحرك
-
-  <input
-    name="engine"
-    placeholder="مثال: 1.6 TDI"
-  >
-
+  <input name="engine" placeholder="مثال: 1.6 TDI">
 </label>
-
 
 <label>
   قوة المحرك
-
-  <input
-    name="power"
-    placeholder="مثال: 105 chevaux"
-  >
-
+  <input name="power" placeholder="مثال: 105 chevaux">
 </label>
-
 
 <label>
   القير
 
   <select name="gearbox">
-
-    <option value="">
-      اختار
-    </option>
-
+    <option value="">اختار</option>
     <option>Manuel</option>
     <option>Automatique</option>
     <option>DSG</option>
     <option>CVT</option>
     <option>Robotisé</option>
-
   </select>
 
 </label>
 
-
 <label>
   السعر المطلوب
-
-  <input
-    name="price"
-    placeholder="مثال: 40000 د.ت"
-  >
-
+  <input name="price" placeholder="مثال: 40000 د.ت">
 </label>
-
 
 <label>
   الولاية
-
-  <input
-    name="governorate"
-    placeholder="مثال: صفاقس"
-  >
-
+  <input name="governorate" placeholder="مثال: صفاقس">
 </label>
-
 
 <label>
   عدد المالكين السابقين
-
-  <input
-    name="owners"
-    type="number"
-    placeholder="مثال: 2"
-  >
-
+  <input name="owners" type="number" placeholder="مثال: 2">
 </label>
-
 
 <label>
   حالة الكرهبة
 
   <select name="condition">
-
-    <option value="">
-      اختار
-    </option>
-
+    <option value="">اختار</option>
     <option>ممتازة</option>
     <option>باهيّة</option>
     <option>متوسطة</option>
     <option>تحتاج خدمة</option>
     <option>ما نعرفش</option>
-
   </select>
 
 </label>
@@ -313,67 +221,41 @@
 </div>
 
 
-<h3>
-  🛠️ تاريخ الصيانة
-</h3>
-
+<h3>🛠️ تاريخ الصيانة</h3>
 
 <div class="grid">
 
 <label>
   آخر صيانة
-
-  <input
-    name="lastService"
-    placeholder="مثال: منذ شهر"
-  >
-
+  <input name="lastService" placeholder="مثال: منذ شهر">
 </label>
-
 
 <label>
   فواتير الصيانة؟
 
   <select name="serviceInvoices">
-
-    <option value="">
-      اختار
-    </option>
-
+    <option value="">اختار</option>
     <option>إي</option>
     <option>لا</option>
     <option>بعضهم</option>
     <option>ما نعرفش</option>
-
   </select>
 
 </label>
 
-
 <label>
   تبدلت قطع كبيرة؟
-
-  <input
-    name="replacedParts"
-    placeholder="مثال: Embrayage"
-  >
-
+  <input name="replacedParts" placeholder="مثال: Embrayage">
 </label>
-
 
 <label>
   عملت حادث؟
 
   <select name="accident">
-
-    <option value="">
-      اختار
-    </option>
-
+    <option value="">اختار</option>
     <option>لا</option>
     <option>إي</option>
     <option>ما نعرفش</option>
-
   </select>
 
 </label>
@@ -381,10 +263,7 @@
 </div>
 
 
-<h3>
-  🔧 حالة الكرهبة
-</h3>
-
+<h3>🔧 حالة الكرهبة</h3>
 
 <div class="grid">
 
@@ -392,72 +271,49 @@
   المكيف
 
   <select name="ac">
-
-    <option value="">
-      اختار
-    </option>
-
+    <option value="">اختار</option>
     <option>يخدم مليح</option>
     <option>يخدم أما ضعيف</option>
     <option>ما يخدمش</option>
     <option>ما جربتوش</option>
-
   </select>
 
 </label>
-
 
 <label>
   لمبات تحذير في الطابلو؟
 
   <select name="warningLights">
-
-    <option value="">
-      اختار
-    </option>
-
+    <option value="">اختار</option>
     <option>لا</option>
     <option>إي</option>
     <option>ما نعرفش</option>
-
   </select>
 
 </label>
-
 
 <label>
   حالة العجلات
 
   <select name="tires">
-
-    <option value="">
-      اختار
-    </option>
-
+    <option value="">اختار</option>
     <option>جدد</option>
     <option>متوسطة</option>
     <option>مستهلكة</option>
     <option>ما نعرفش</option>
-
   </select>
 
 </label>
-
 
 <label>
   حالة البطارية
 
   <select name="battery">
-
-    <option value="">
-      اختار
-    </option>
-
+    <option value="">اختار</option>
     <option>جديدة</option>
     <option>باهيّة</option>
     <option>ضعيفة</option>
     <option>ما نعرفش</option>
-
   </select>
 
 </label>
@@ -465,10 +321,7 @@
 </div>
 
 
-<h3>
-  📝 شنوة لاحظت إنت؟
-</h3>
-
+<h3>📝 شنوة لاحظت إنت؟</h3>
 
 <label>
 
@@ -484,28 +337,19 @@
 </label>
 
 
-<button
-  id="btn"
-  type="submit"
->
+<button id="btn" type="submit">
   🤖 حلّل الكرهبة
 </button>
 
 </form>
 
 
-<div
-  id="loading"
-  class="loading hidden"
->
+<div id="loading" class="loading hidden">
   جاري التحليل... ⏳
 </div>
 
 
-<pre
-  id="result"
-  class="result hidden"
-></pre>
+<pre id="result" class="result hidden"></pre>
 
 </section>
 
@@ -727,6 +571,35 @@
       </label>
 
 
+      <!-- =========================
+           📸 CAR IMAGES
+      ========================= -->
+
+      <label class="car-images-label">
+
+        📸 صور السيارة
+
+        <input
+          id="car-images"
+          type="file"
+          accept="image/*"
+          multiple
+        >
+
+      </label>
+
+
+      <p class="muted">
+        تنجم تختار أكثر من صورة من التليفون.
+      </p>
+
+
+      <div
+        id="car-image-preview"
+        class="car-image-preview"
+      ></div>
+
+
       <button
         class="add-car-btn"
         type="submit"
@@ -765,10 +638,7 @@
      HOW IT WORKS
 ========================= -->
 
-<section
-  id="how"
-  class="steps"
->
+<section id="how" class="steps">
 
 <h2>
   كيفاش يخدم AutoCheck AI؟
@@ -778,54 +648,26 @@
 <div class="cards">
 
 <div>
-
-  <b>
-    1. عمّر المعلومات
-  </b>
-
-  <p>
-    دخل اللي تعرفو على الكرهبة.
-  </p>
-
+  <b>1. عمّر المعلومات</b>
+  <p>دخل اللي تعرفو على الكرهبة.</p>
 </div>
 
 
 <div>
-
-  <b>
-    2. حلّل
-  </b>
-
-  <p>
-    الموقع يراجع المعلومات والأعراض اللي دخلتهم.
-  </p>
-
+  <b>2. حلّل</b>
+  <p>الموقع يراجع المعلومات والأعراض اللي دخلتهم.</p>
 </div>
 
 
 <div>
-
-  <b>
-    3. افحص قبل ما تشري
-  </b>
-
-  <p>
-    تاخو قائمة بالحاجات اللي يلزمك تراقبها وتسأل عليها.
-  </p>
-
+  <b>3. افحص قبل ما تشري</b>
+  <p>تاخو قائمة بالحاجات اللي يلزمك تراقبها وتسأل عليها.</p>
 </div>
 
 
 <div>
-
-  <b>
-    4. اختار سيارة
-  </b>
-
-  <p>
-    شوف السيارات المعروضة للبيع وقارن المعلومات قبل التواصل مع البائع.
-  </p>
-
+  <b>4. اختار سيارة</b>
+  <p>شوف السيارات المعروضة للبيع وقارن المعلومات قبل التواصل مع البائع.</p>
 </div>
 
 </div>
