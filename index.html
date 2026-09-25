@@ -7,9 +7,9 @@
 
 <title>AutoCheck AI — فحص السيارات المستعملة في تونس قبل الشراء</title>
 
-<meta name="description" content="AutoCheck AI يساعدك على فحص السيارات المستعملة في تونس قبل الشراء. أدخل معلومات السيارة والأعراض للحصول على نقاط الخطر والفحوصات والأسئلة المهمة.">
+<meta name="description" content="AutoCheck AI يساعدك على فحص السيارات المستعملة في تونس قبل الشراء. حلّل السيارة وشوف السيارات المعروضة للبيع.">
 
-<meta name="keywords" content="AutoCheck AI, فحص السيارات المستعملة, سيارات مستعملة تونس, فحص كرهبة, شراء سيارة تونس, فحص سيارة قبل الشراء, فحص السيارات تونس">
+<meta name="keywords" content="AutoCheck AI, فحص السيارات المستعملة, سيارات مستعملة تونس, سيارات للبيع تونس, فحص كرهبة, شراء سيارة تونس">
 
 <meta name="author" content="AutoCheck AI">
 <meta name="robots" content="index, follow">
@@ -17,27 +17,24 @@
 
 <link rel="canonical" href="https://autocheck-ai-seven.vercel.app/">
 
-<!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="AutoCheck AI — فحص السيارات المستعملة في تونس">
-<meta property="og:description" content="حلّل معلومات السيارة المستعملة قبل الشراء واعرف نقاط الخطر والفحوصات والأسئلة المهمة.">
+<meta property="og:description" content="حلّل معلومات السيارة المستعملة قبل الشراء وشوف السيارات المعروضة للبيع.">
 <meta property="og:url" content="https://autocheck-ai-seven.vercel.app/">
 <meta property="og:site_name" content="AutoCheck AI">
 <meta property="og:locale" content="ar_TN">
 
-<!-- Twitter -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AutoCheck AI — فحص السيارات المستعملة في تونس">
 <meta name="twitter:description" content="مساعدك لفحص السيارة المستعملة قبل الشراء في تونس.">
 
-<!-- Structured Data -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
   "name": "AutoCheck AI",
   "url": "https://autocheck-ai-seven.vercel.app/",
-  "description": "AutoCheck AI يساعدك على فحص السيارات المستعملة في تونس قبل الشراء، ومعرفة نقاط الخطر والفحوصات والأسئلة المهمة.",
+  "description": "AutoCheck AI يساعدك على فحص السيارات المستعملة في تونس قبل الشراء.",
   "applicationCategory": "AutomotiveApplication",
   "operatingSystem": "Web",
   "inLanguage": "ar-TN",
@@ -60,13 +57,20 @@
     🚗 AutoCheck <span>AI</span>
   </div>
 
-  <a href="#how">
-    كيفاش يخدم؟
-  </a>
+  <nav>
+    <a href="#analyzer">🤖 فحص السيارة</a>
+    <a href="#cars">🚗 سيارات للبيع</a>
+    <a href="#how">كيفاش يخدم؟</a>
+  </nav>
 
 </header>
 
+
 <main>
+
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero">
 
@@ -86,11 +90,20 @@
       وخذ قائمة بالحاجات اللي يلزمك تراقبها قبل الشراء.
     </p>
 
-    <a class="cta" href="#analyzer">
-      جرّب الفحص المجاني ↓
-    </a>
+    <div class="hero-buttons">
+
+      <a class="cta" href="#analyzer">
+        🤖 جرّب الفحص المجاني
+      </a>
+
+      <a class="cta secondary" href="#cars">
+        🚗 شوف السيارات للبيع
+      </a>
+
+    </div>
 
   </div>
+
 
   <div class="card mini">
 
@@ -110,10 +123,18 @@
       💬 أسئلة للمولّى
     </div>
 
+    <div>
+      🚗 سيارات للبيع
+    </div>
+
   </div>
 
 </section>
 
+
+<!-- =========================
+     AI ANALYZER
+========================= -->
 
 <section id="analyzer" class="panel">
 
@@ -132,6 +153,7 @@
 
 <label>
   الماركة
+
   <input
     name="brand"
     placeholder="مثال: Volkswagen"
@@ -142,6 +164,7 @@
 
 <label>
   الموديل
+
   <input
     name="model"
     placeholder="مثال: Golf 7"
@@ -152,6 +175,7 @@
 
 <label>
   عام الصنع
+
   <input
     name="year"
     type="number"
@@ -163,6 +187,7 @@
 
 <label>
   الكيلومترات
+
   <input
     name="mileage"
     placeholder="مثال: 150000 كم"
@@ -179,25 +204,11 @@
       اختار
     </option>
 
-    <option>
-      Essence
-    </option>
-
-    <option>
-      Diesel
-    </option>
-
-    <option>
-      Hybride
-    </option>
-
-    <option>
-      Electrique
-    </option>
-
-    <option>
-      GPL
-    </option>
+    <option>Essence</option>
+    <option>Diesel</option>
+    <option>Hybride</option>
+    <option>Electrique</option>
+    <option>GPL</option>
 
   </select>
 
@@ -235,25 +246,11 @@
       اختار
     </option>
 
-    <option>
-      Manuel
-    </option>
-
-    <option>
-      Automatique
-    </option>
-
-    <option>
-      DSG
-    </option>
-
-    <option>
-      CVT
-    </option>
-
-    <option>
-      Robotisé
-    </option>
+    <option>Manuel</option>
+    <option>Automatique</option>
+    <option>DSG</option>
+    <option>CVT</option>
+    <option>Robotisé</option>
 
   </select>
 
@@ -303,25 +300,11 @@
       اختار
     </option>
 
-    <option>
-      ممتازة
-    </option>
-
-    <option>
-      باهيّة
-    </option>
-
-    <option>
-      متوسطة
-    </option>
-
-    <option>
-      تحتاج خدمة
-    </option>
-
-    <option>
-      ما نعرفش
-    </option>
+    <option>ممتازة</option>
+    <option>باهيّة</option>
+    <option>متوسطة</option>
+    <option>تحتاج خدمة</option>
+    <option>ما نعرفش</option>
 
   </select>
 
@@ -357,21 +340,10 @@
       اختار
     </option>
 
-    <option>
-      إي
-    </option>
-
-    <option>
-      لا
-    </option>
-
-    <option>
-      بعضهم
-    </option>
-
-    <option>
-      ما نعرفش
-    </option>
+    <option>إي</option>
+    <option>لا</option>
+    <option>بعضهم</option>
+    <option>ما نعرفش</option>
 
   </select>
 
@@ -398,17 +370,9 @@
       اختار
     </option>
 
-    <option>
-      لا
-    </option>
-
-    <option>
-      إي
-    </option>
-
-    <option>
-      ما نعرفش
-    </option>
+    <option>لا</option>
+    <option>إي</option>
+    <option>ما نعرفش</option>
 
   </select>
 
@@ -433,21 +397,10 @@
       اختار
     </option>
 
-    <option>
-      يخدم مليح
-    </option>
-
-    <option>
-      يخدم أما ضعيف
-    </option>
-
-    <option>
-      ما يخدمش
-    </option>
-
-    <option>
-      ما جربتوش
-    </option>
+    <option>يخدم مليح</option>
+    <option>يخدم أما ضعيف</option>
+    <option>ما يخدمش</option>
+    <option>ما جربتوش</option>
 
   </select>
 
@@ -463,17 +416,9 @@
       اختار
     </option>
 
-    <option>
-      لا
-    </option>
-
-    <option>
-      إي
-    </option>
-
-    <option>
-      ما نعرفش
-    </option>
+    <option>لا</option>
+    <option>إي</option>
+    <option>ما نعرفش</option>
 
   </select>
 
@@ -489,21 +434,10 @@
       اختار
     </option>
 
-    <option>
-      جدد
-    </option>
-
-    <option>
-      متوسطة
-    </option>
-
-    <option>
-      مستهلكة
-    </option>
-
-    <option>
-      ما نعرفش
-    </option>
+    <option>جدد</option>
+    <option>متوسطة</option>
+    <option>مستهلكة</option>
+    <option>ما نعرفش</option>
 
   </select>
 
@@ -519,21 +453,10 @@
       اختار
     </option>
 
-    <option>
-      جديدة
-    </option>
-
-    <option>
-      باهيّة
-    </option>
-
-    <option>
-      ضعيفة
-    </option>
-
-    <option>
-      ما نعرفش
-    </option>
+    <option>جديدة</option>
+    <option>باهيّة</option>
+    <option>ضعيفة</option>
+    <option>ما نعرفش</option>
 
   </select>
 
@@ -554,7 +477,7 @@
   <textarea
     name="symptoms"
     rows="6"
-    placeholder="مثال: فما دخان وقت التشغيل، صوت في الموتور، اهتزاز، القير يضرب، صاحبها قال ما فيها حتى شيء..."
+    placeholder="مثال: فما دخان وقت التشغيل، صوت في الموتور، اهتزاز، القير يضرب..."
     required
   ></textarea>
 
@@ -567,7 +490,6 @@
 >
   🤖 حلّل الكرهبة
 </button>
-
 
 </form>
 
@@ -587,6 +509,59 @@
 
 </section>
 
+
+<!-- =========================
+     CARS MARKETPLACE
+========================= -->
+
+<section id="cars" class="panel">
+
+  <div class="section-heading">
+
+    <div>
+
+      <p class="badge">
+        🚗 Marketplace
+      </p>
+
+      <h2>
+        سيارات للبيع
+      </h2>
+
+      <p class="muted">
+        شوف السيارات المعروضة للبيع على AutoCheck AI.
+      </p>
+
+    </div>
+
+    <button
+      id="refresh-cars"
+      class="refresh-btn"
+      type="button"
+    >
+      🔄 تحديث
+    </button>
+
+  </div>
+
+
+  <div
+    id="cars-list"
+    class="cars-grid"
+  >
+
+    <div class="car-loading">
+      🚗 جاري تحميل السيارات...
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     HOW IT WORKS
+========================= -->
 
 <section
   id="how"
@@ -638,12 +613,29 @@
 
 </div>
 
+
+<div>
+
+  <b>
+    4. اختار سيارة
+  </b>
+
+  <p>
+    شوف السيارات المعروضة للبيع وقارن المعلومات قبل التواصل مع البائع.
+  </p>
+
+</div>
+
 </div>
 
 </section>
 
 </main>
 
+
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
