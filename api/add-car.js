@@ -64,7 +64,12 @@ export default async function handler(req, res) {
       description: body.description
         ? String(body.description).trim()
         : "",
-      seller_phone: String(body.seller_phone).trim()
+      seller_phone: String(body.seller_phone).trim(),
+
+      // صورة السيارة
+      image_url: body.image_url
+        ? String(body.image_url).trim()
+        : null
     };
 
     if (
@@ -107,12 +112,10 @@ export default async function handler(req, res) {
     });
 
   } catch (error) {
-
     console.error("Add car API error:", error);
 
     return res.status(500).json({
       error: "صار خطأ أثناء نشر السيارة."
     });
-
   }
 }
