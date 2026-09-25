@@ -545,6 +545,208 @@
   </div>
 
 
+  <!-- ADD CAR -->
+
+  <div class="add-car-box">
+
+    <h3>
+      ➕ أضف سيارتك للبيع
+    </h3>
+
+    <p class="muted">
+      حط معلومات سيارتك باش تظهر للناس في Marketplace.
+    </p>
+
+
+    <form id="add-car-form">
+
+      <div class="grid">
+
+        <label>
+          الماركة
+
+          <input
+            id="car-brand"
+            type="text"
+            placeholder="مثال: Volkswagen"
+            required
+          >
+        </label>
+
+
+        <label>
+          الموديل
+
+          <input
+            id="car-model"
+            type="text"
+            placeholder="مثال: Golf 7"
+            required
+          >
+        </label>
+
+
+        <label>
+          السنة
+
+          <input
+            id="car-year"
+            type="number"
+            min="1950"
+            max="2030"
+            placeholder="2015"
+            required
+          >
+        </label>
+
+
+        <label>
+          الكيلومترات
+
+          <input
+            id="car-mileage"
+            type="number"
+            min="0"
+            placeholder="145000"
+            required
+          >
+        </label>
+
+
+        <label>
+          السعر بالدينار
+
+          <input
+            id="car-price"
+            type="number"
+            min="0"
+            placeholder="42000"
+            required
+          >
+        </label>
+
+
+        <label>
+          الولاية
+
+          <input
+            id="car-governorate"
+            type="text"
+            placeholder="مثال: Sousse"
+            required
+          >
+        </label>
+
+
+        <label>
+          الوقود
+
+          <select id="car-fuel" required>
+
+            <option value="">
+              اختار
+            </option>
+
+            <option value="Diesel">
+              Diesel
+            </option>
+
+            <option value="Essence">
+              Essence
+            </option>
+
+            <option value="Hybrid">
+              Hybrid
+            </option>
+
+            <option value="Electric">
+              Electric
+            </option>
+
+            <option value="GPL">
+              GPL
+            </option>
+
+          </select>
+
+        </label>
+
+
+        <label>
+          علبة السرعات
+
+          <select id="car-gearbox" required>
+
+            <option value="">
+              اختار
+            </option>
+
+            <option value="Manual">
+              Manual
+            </option>
+
+            <option value="Automatic">
+              Automatic
+            </option>
+
+            <option value="DSG">
+              DSG
+            </option>
+
+            <option value="CVT">
+              CVT
+            </option>
+
+          </select>
+
+        </label>
+
+
+        <label>
+          رقم الهاتف
+
+          <input
+            id="car-phone"
+            type="tel"
+            placeholder="مثال: 20000000"
+            required
+          >
+        </label>
+
+      </div>
+
+
+      <label>
+        وصف السيارة
+
+        <textarea
+          id="car-description"
+          rows="5"
+          placeholder="مثال: Golf 7 en bon état، صيانة منتظمة..."
+        ></textarea>
+      </label>
+
+
+      <button
+        class="add-car-btn"
+        type="submit"
+      >
+        🚗 نشر السيارة
+      </button>
+
+
+      <div
+        id="add-car-message"
+        class="add-car-message"
+      ></div>
+
+    </form>
+
+  </div>
+
+
+  <!-- CARS LIST -->
+
   <div
     id="cars-list"
     class="cars-grid"
